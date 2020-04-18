@@ -13,17 +13,9 @@ MonoBehaviour:
   m_Name: HCM_Settings
   m_EditorClassIdentifier: 
   TagColors:
-  - Tag: MainCamera
-    Color: {r: 1, g: 0.5883559, b: 0, a: 1}
+  - Tag: Player
+    Color: {r: 0, g: 1, b: 0.66164064, a: 1}
   - Tag: EditorOnly
     Color: {r: 1, g: 0, b: 0, a: 1}
-  - Tag: Finish
-    Color: {r: 0, g: 1, b: 0.09803915, a: 1}
-  - Tag: Untagged
-    Color: {r: 1, g: 0.36320752, b: 0.8903035, a: 1}
-  - Tag: Player
-    Color: {r: 1, g: 1, b: 1, a: 1}
-  - Tag: GameController
-    Color: {r: 0.73393774, g: 0, b: 1, a: 1}
-  - Tag: Respawn
-    Color: {r: 0.956295, g: 1, b: 0, a: 1}
+  - Tag: MainCamera
+    Color: {r: 0.27792454, g: 0, b: 1, a: 1}
