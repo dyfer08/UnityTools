@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEditor;
-using System.Collections.Generic;
 
 [InitializeOnLoad]
 public class HCM_Hierarchy {
