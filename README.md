@@ -1,4 +1,4 @@
-# UnityTools
+# Unity Tools
 A series of useful Unity tools
 
 
