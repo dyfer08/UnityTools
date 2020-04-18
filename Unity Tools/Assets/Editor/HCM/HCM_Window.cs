@@ -3,25 +3,19 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CustomHierarchyWindow : EditorWindow{
+public class HCM_Window : EditorWindow{
 
-    string AppName;
-    int TagQuantity;
     Vector2 scrollPos;
-    List<HierarchyTagAttribute> MyTags = new List<HierarchyTagAttribute>();
+    HCM_Data HCMSettings = null;
 
     [MenuItem("Window/Hierarchy Color Manager")]
     public static void ShowWindow(){
-        EditorWindow.GetWindow<CustomHierarchyWindow>("Hierarchy Color Manager");
+        EditorWindow.GetWindow<HCM_Window>("Hierarchy Color Manager");
     }
 
     void Awake(){
-        AppName = GetProjectName();
-        TagQuantity = EditorPrefs.GetInt(AppName+"TagQuantity");
-        while (MyTags.Count < TagQuantity){
-            MyTags.Add(new HierarchyTagAttribute("", new Color (0,0,0)));
-        }
-        OnFocus();
+        // First of all, get the settings file
+        HCMSettings = (HCM_Data)AssetDatabase.LoadAssetAtPath("Assets/Editor/HCM/HCM_Settings.asset", typeof(HCM_Data));
     }
     
     void OnGUI(){
@@ -31,7 +25,7 @@ public class CustomHierarchyWindow : EditorWindow{
         GUI.skin.label.alignment = TextAnchor.MiddleLeft;
         GUI.skin.label.margin.left = 10;
 
-        GUILayout.Space(10);
+        GUILayout.Space(10); 
 
         EditorGUI.DrawRect(new Rect(0, 0, Screen.width, 1), new Color32(125,125,125,255));
         EditorGUI.DrawRect(new Rect(0, 1, Screen.width, 32), new Color32(225,225,225,255));
@@ -53,11 +47,11 @@ public class CustomHierarchyWindow : EditorWindow{
 
         GUILayout.Space(6);
 
-        for (int i =0; i < MyTags.Count; i++){
+        for (int i =0; i < HCMSettings.TagColors.Count; i++){
             EditorGUILayout.BeginHorizontal ();
                 GUILayout.Label (""+i, GUI.skin.label, GUILayout.MaxWidth(16));
-                MyTags[i].Tag = EditorGUILayout.TagField(MyTags[i].Tag);
-                MyTags[i].TagOn = EditorGUILayout.ColorField(MyTags[i].TagOn);
+                HCMSettings.TagColors[i].Tag = EditorGUILayout.TagField(HCMSettings.TagColors[i].Tag);
+                HCMSettings.TagColors[i].Color = EditorGUILayout.ColorField(HCMSettings.TagColors[i].Color);
             EditorGUILayout.EndHorizontal ();
         }
 
@@ -71,7 +65,7 @@ public class CustomHierarchyWindow : EditorWindow{
 
         EditorGUILayout.BeginHorizontal (NewStyle);
             GUILayout.FlexibleSpace();
-            GUILayout.Label ("Number of colors : "+ TagQuantity, GUI.skin.label, GUILayout.Height(20));
+            GUILayout.Label ("Number of colors : "+ HCMSettings.TagColors.Count, GUI.skin.label, GUILayout.Height(20));
             GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal ();
 
@@ -86,38 +80,18 @@ public class CustomHierarchyWindow : EditorWindow{
         GUI.skin.button.fixedHeight = 20;
 
         if (GUILayout.Button("Remove last color", GUI.skin.button)){
-            TagQuantity --;
-            OnFocus();
+            HCMSettings.TagColors.Remove(HCMSettings.TagColors[HCMSettings.TagColors.Count-1]);
         }
 
         if (GUILayout.Button("Add new color", GUI.skin.button)){
-            TagQuantity ++;
-            OnFocus();
+            HCMSettings.TagColors.Add(new HCM_Data.TagColor());
         }
 
         EditorGUILayout.EndScrollView();
 
         if (GUI.changed){
-            EditorPrefs.SetInt(AppName+"TagQuantity", TagQuantity);
-
-            while (MyTags.Count < TagQuantity){
-                MyTags.Add(new HierarchyTagAttribute("", new Color32 (0,0,0,255)));
-            }
-
-            while (MyTags.Count > TagQuantity){
-                MyTags.Remove(MyTags[MyTags.Count-1]);
-            }
-
-            for (int i =0; i < MyTags.Count; i++){
-                string PrefID = AppName + "Tag" +i;
-                EditorPrefs.SetString(PrefID, MyTags[i].Tag);
-                EditorPrefs.SetFloat(PrefID + "CAR", MyTags[i].TagOn.r);
-                EditorPrefs.SetFloat(PrefID + "CAG", MyTags[i].TagOn.g);
-                EditorPrefs.SetFloat(PrefID + "CAB", MyTags[i].TagOn.b);
-                EditorPrefs.SetFloat(PrefID + "CAA", MyTags[i].TagOn.a);
-            }
-
-        	CustomHierarchy.UpdateTags(TagQuantity);
+            EditorUtility.SetDirty(HCMSettings);
+            AssetDatabase.SaveAssets();
         }
     }
 
@@ -128,29 +102,5 @@ public class CustomHierarchyWindow : EditorWindow{
         r.x-=2;
         r.width +=6;
         EditorGUI.DrawRect(r, color);
-    }
-
-    void OnFocus(){
-        while (MyTags.Count < TagQuantity){
-            MyTags.Add(new HierarchyTagAttribute("", new Color32 (0,0,0,255)));
-        }
-
-        while (MyTags.Count > TagQuantity){
-            MyTags.Remove(MyTags[MyTags.Count-1]);
-        }
-
-        for (int i =0; i < MyTags.Count; i++){
-            string PrefID = AppName + "Tag" +i;
-            MyTags[i].Tag = EditorPrefs.GetString(PrefID);
-            MyTags[i].TagOn = new Color(EditorPrefs.GetFloat(PrefID + "CAR"), EditorPrefs.GetFloat(PrefID + "CAG"), EditorPrefs.GetFloat(PrefID + "CAB"), EditorPrefs.GetFloat(PrefID + "CAA"));
-        }
-
-        CustomHierarchy.UpdateTags(TagQuantity);
-    }
-
-    string GetProjectName(){
-        string[] s = Application.dataPath.Split('/');
-        string projectName = s[s.Length - 2];
-        return projectName;
     }
 }
