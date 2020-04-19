@@ -10,7 +10,7 @@ Assign colors to the gameobjects in your hierarchy window. This is based on tags
 **Download** :
 - [HierarchyColorManager.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/HierarchyColorManager.unitypackage.zip)
 
-**Features to add** :
+**Future improvements** :
 - Delete any tag in the list not just the last one.
 
 ---
@@ -21,7 +21,7 @@ Auto increment the bundle version number after a build on iOS and Android. This 
 **Download** :
 - [BundleVersionAutoUpdater.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/BundleVersionAutoUpdater.unitypackage.zip)
 
-**Features to add** :
+**Future improvements** :
 - Maybe add support for more platforms if required.
 
 ---
@@ -37,5 +37,5 @@ Receive and show every Unity console message directly in your build. this is esp
 **How to use** :
 - Just drag and drop the DeviceConsole prefab in your scene. If you need to adjust the scale, modify the Scale Factor of the Canvas Scaler component.
 
-**Features to add** :
+**Future improvements** :
 - Maybe limit the console messages to 2 lines and show the full reslut in a bottom window when selected (like Unity does in the Editor).
