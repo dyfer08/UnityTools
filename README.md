@@ -1,5 +1,5 @@
 # Unity Tools
-A series of useful Unity tools
+A collection of useful tools for Unity.
 
 
 ### HCM (Hierarchy Color Manager)
