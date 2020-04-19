@@ -13,6 +13,7 @@ Download :
 Features to add :
 - Delete any tag in the list not just the last one.
 
+---
 
 ## BVAU (Bundle Version Auto Updater) for iOS & Android
 Auto increment the bundle version number after a build on iOS and Android. This prevent your app from being rejected by the store submission if the bundle version has not changed.
@@ -23,6 +24,7 @@ Download :
 Features to add :
 - Maybe add support for more platforms if required.
 
+---
 
 ## Device Console
 Receive and show every Unity console message directly in your build. this is especially useful on mobile and AR projects.
