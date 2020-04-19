@@ -22,3 +22,15 @@ Download :
 
 Features to add :
 - Maybe add support for more platforms if required.
+
+
+## Device Console
+Receive and show every Unity console message directly in your build. this is especially useful on mobile and AR projects.
+
+![DeviceConsole in Unity](https://ferdinanddervieux.com/ImageHosting/DeviceConsole.png)
+
+How to use :
+Just drag and drop the DeviceConsole prefab in your scene. If you need to adjust the scale, modify the Scale Factor of the Canvas Scaler component.
+
+Download :
+- [DeviceConsole.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/DeviceConsole.unitypackage.zip)
