@@ -12,16 +12,25 @@ public class HCM_Window : EditorWindow{
     }
 
     void Awake(){
-        // First of all, get the settings file
         HCMSettings = (HCM_Data)AssetDatabase.LoadAssetAtPath("Assets/Editor/HCM/HCM_Settings.asset", typeof(HCM_Data));
     }
     
     void OnGUI(){
+
+        Undo.RecordObject(HCMSettings, "Changed Settings");
         
         scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
         GUI.skin.label.alignment = TextAnchor.MiddleLeft;
         GUI.skin.label.margin.left = 10;
+
+        GUIStyle MyButton = new GUIStyle (GUI.skin.button);
+        MyButton.fixedWidth = 18;
+        MyButton.fixedHeight = 18;
+        MyButton.margin.left = 0;
+        MyButton.margin.right = 2;
+        MyButton.padding.top = 3;
+        MyButton.padding.left = 7;
 
         GUILayout.Space(10); 
 
@@ -33,7 +42,7 @@ public class HCM_Window : EditorWindow{
             GUILayout.FlexibleSpace();
             GUILayout.Label ("Hierarchy Color Manager Settings", EditorStyles.boldLabel);
             GUILayout.FlexibleSpace();
-        EditorGUILayout.EndHorizontal ();
+        EditorGUILayout.EndHorizontal();
 
         GUILayout.Space(16);
 
@@ -50,6 +59,9 @@ public class HCM_Window : EditorWindow{
                 GUILayout.Label (""+i, GUI.skin.label, GUILayout.MaxWidth(16));
                 HCMSettings.TagColors[i].Tag = EditorGUILayout.TagField(HCMSettings.TagColors[i].Tag);
                 HCMSettings.TagColors[i].Color = EditorGUILayout.ColorField(HCMSettings.TagColors[i].Color);
+                if (GUILayout.Button("-", MyButton, GUILayout.MaxWidth(22))){
+                    HCMSettings.TagColors.Remove(HCMSettings.TagColors[i]);
+                }
             EditorGUILayout.EndHorizontal ();
         }
 
@@ -73,13 +85,10 @@ public class HCM_Window : EditorWindow{
 
         GUILayout.Space(10);
 
+        GUI.skin.button.fixedWidth = default;
         GUI.skin.button.margin.left = 28;
         GUI.skin.button.margin.right = 22;
         GUI.skin.button.fixedHeight = 20;
-
-        if (GUILayout.Button("Remove last color", GUI.skin.button)){
-            HCMSettings.TagColors.Remove(HCMSettings.TagColors[HCMSettings.TagColors.Count-1]);
-        }
 
         if (GUILayout.Button("Add new color", GUI.skin.button)){
             HCMSettings.TagColors.Add(new HCM_Data.TagColor());
@@ -91,14 +100,15 @@ public class HCM_Window : EditorWindow{
             EditorUtility.SetDirty(HCMSettings);
             AssetDatabase.SaveAssets();
         }
+
     }
 
     void DrawUILine(Color color, int thickness = 2, int padding = 10){
         Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding+thickness));
         r.height = thickness;
-        r.y+=padding/2;
-        r.x-=2;
-        r.width +=6;
+        r.y += padding/2;
+        r.x -= 2;
+        r.width += 6;
         EditorGUI.DrawRect(r, color);
     }
 }
