@@ -11,7 +11,6 @@ Assign colors to the gameobjects in your hierarchy window. This is based on tags
 - [HierarchyColorManager.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/HierarchyColorManager.unitypackage.zip)
 
 **Future improvements** :
-- Delete any tag in the list not just the last one.
 - Maybe remove the total number of colors. Seems sadly useless :p
 
 ---
