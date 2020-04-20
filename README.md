@@ -14,7 +14,7 @@ Assign colors to the gameobjects in your hierarchy window. This is based on tags
 - Delete any tag in the list not just the last one.
 - Maybe remove the total number of colors. Seems sadly useless :p
 
----
+--- 
 
 ### BVAU (Bundle Version Auto Updater) for iOS & Android
 Auto increment the bundle version number after a build on iOS and Android. This prevent your app from being rejected by the store submission if the bundle version has not changed.
