@@ -5,7 +5,7 @@ A collection of useful tools for Unity.
 ### HCM (Hierarchy Color Manager)
 Assign colors to the gameobjects in your hierarchy window. This is based on tags.
 
-![HCM in Unity](https://ferdinanddervieux.com/ImageHosting/HCM.png)
+![HCM in Unity](https://ferdinanddervieux.com/ImageHosting/HCM2.png)
 
 **Download** :
 - [HierarchyColorManager.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/HierarchyColorManager.unitypackage.zip)
@@ -14,7 +14,7 @@ Assign colors to the gameobjects in your hierarchy window. This is based on tags
 - Delete any tag in the list not just the last one.
 - Maybe remove the total number of colors. Seems sadly useless :p
 
---- 
+---
 
 ### BVAU (Bundle Version Auto Updater) for iOS & Android
 Auto increment the bundle version number after a build on iOS and Android. This prevent your app from being rejected by the store submission if the bundle version has not changed.
