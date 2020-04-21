@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour {
 
 	public static SaveManager Instance;
     static string FilePath;
+    static int Slot = 0;
     static Dictionary<string, string> GameSave;
     static Dictionary<string, string> EmptyGameSave = new Dictionary<string, string>(){{"SaveTime", ""}};
 
@@ -22,21 +23,26 @@ public class SaveManager : MonoBehaviour {
     	}
     }
 
-	public static void LoadGameSave(int Slot){
+	public static void LoadGameSave(int NewSlot){
+		Slot = NewSlot;
 		FilePath = Application.persistentDataPath+"/GameSave"+Slot;
 		if (System.IO.File.Exists(FilePath)){
 			byte[] GameFile = File.ReadAllBytes(FilePath);
 
-			StringBuilder SB = new StringBuilder();
-			using (SHA256Managed sha256 = new SHA256Managed()){
-				byte[] BytesSalt = System.Text.Encoding.UTF8.GetBytes(SystemInfo.deviceUniqueIdentifier);
-				byte[] Hash = sha256.ComputeHash(GameFile.Concat(BytesSalt).ToArray());
-				foreach (byte B in Hash){
-					SB.Append(B.ToString("X2"));
+			if(System.IO.File.Exists(Application.persistentDataPath+"/SHA256"+Slot+".txt")){
+				StringBuilder SB = new StringBuilder();
+				using (SHA256Managed sha256 = new SHA256Managed()){
+					byte[] BytesSalt = System.Text.Encoding.UTF8.GetBytes(SystemInfo.deviceUniqueIdentifier);
+					byte[] Hash = sha256.ComputeHash(GameFile.Concat(BytesSalt).ToArray());
+					foreach (byte B in Hash){
+						SB.Append(B.ToString("X2"));
+					}
 				}
-			}
-			if(SB.ToString() != File.ReadAllText(Application.persistentDataPath+"/SHA256.txt")){
-				Debug.LogWarning("Save file has been modified. Do something about it... or not.");
+				if(SB.ToString() != File.ReadAllText(Application.persistentDataPath+"/SHA256"+Slot+".txt")){
+					Debug.LogWarning("Save file has been modified. Do something about it... or not.");
+				}
+			}else{
+				Debug.LogWarning("SHA file is missing. Do something about it... or not.");
 			}
 
 			GameSave = FromBytes<Dictionary<string, string>>(GameFile);
@@ -85,7 +91,7 @@ public class SaveManager : MonoBehaviour {
 				SB.Append(B.ToString("X2"));
 			}
 		}
-		File.WriteAllText(Application.persistentDataPath+"/SHA256.txt", SB.ToString());
+		File.WriteAllText(Application.persistentDataPath+"/SHA256"+Slot+".txt", SB.ToString());
 	}
 
 	static byte[] ToBytes(Dictionary<string, string> Data) {
