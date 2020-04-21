@@ -39,3 +39,39 @@ Receive and show every Unity console message directly in your build. this is esp
 
 **Future improvements** :
 - Maybe limit the console messages to 2 lines and show the full reslut in a bottom window when selected (like Unity does in the Editor).
+
+---
+
+### Save Manager
+An easy to use encrypted game save manager. Create, load, save game data on any platform. It's using a SHA256 encryption and warns you if the game save has been modified or the SHA key is missing so you can decide what to do. You can create as many game save as you want by passing a slot int.
+
+**Download** :
+- [SaveManager.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/SaveManager.unitypackage.zip)
+
+**How to use** :
+- Just drag and drop the SaveManager prefab in your scene. It is a DontDestroyOnLoad singleton object.
+- Create or load a game save in a specific slot. If the slot is empty, it creates a new save file.
+  ```csharp
+  SaveManager.LoadGameSave(int Slot);
+  ```
+- Set or update game save data. Pass a key and a value. It automatically creates new keys and update existing ones.
+  ```csharp
+  SaveManager.UpdateData(string DataKey, string DataValue);
+  ```
+- Get a save data value. Return the requested value as a string. If the key doesn't exist it returns "No data";
+  ```csharp
+  SaveManager.GetData(string DataKey);
+  ```
+- Save the game. Write the game save data to the current slot.
+  ```csharp
+  SaveManager.SaveGame();
+  ```
+- Erase current save file. Replace the data of the current slot with empty data.
+  ```csharp
+  SaveManager.EraseSaveFile();
+  ```
+- Show the list all the data of the current game save in the console.
+  ```csharp
+  SaveManager.DebugGameSave();
+  ```
+- By default every game save created contains a "SaveTime" key. this key is updated everytime you save the game. It returns the System.DateTime.Now formated as a string : "yyMMddHHmmss".
