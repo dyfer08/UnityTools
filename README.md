@@ -58,7 +58,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   ```csharp
   SaveManager.UpdateData(string DataKey, string DataValue);
   ```
-- Get a save data value. Return the requested value as a string. If the key doesn't exist it returns "No data";
+- Get a save data value. Return the requested value as a string. If the key doesn't exist it returns the value "No data".
   ```csharp
   SaveManager.GetData(string DataKey);
   ```
