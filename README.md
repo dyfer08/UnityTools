@@ -70,7 +70,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   ```csharp
   SaveManager.SaveGame();
   ```
-  To save the current game save in a different slot you can pass an int. This new slot will be the active one from now on.
+  To save the current game save in a different slot you can pass an int. From now on this new slot will be the active one.
   ```csharp
   SaveManager.SaveGame(int Slot);
   ```  
