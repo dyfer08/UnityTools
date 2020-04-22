@@ -51,7 +51,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
 **How to use** :
 - Just drag and drop the SaveManager prefab in your scene. It is a DontDestroyOnLoad singleton object.
 - Create or load an existing game save in a specific slot. If the slot is empty, it creates a new game save in this slot.
-**You need to create or load a game save to be able to use most of the SaveManager functions(eg : GetData, SetData, SaveGame)**
+**You need to create or load a game save to be able to use most of the SaveManager functions(eg : GetData, SetData, SaveGame).**
   ```csharp
   SaveManager.LoadOrCreateGameSave(int Slot);
   ```
