@@ -11,20 +11,20 @@ public class Message {
 public class DeviceConsole : MonoBehaviour{
 
 	[SerializeField]
-	GameObject Console;
+	GameObject Console = null;
 	[SerializeField]
-	RectTransform ConsoleContent;
+	RectTransform ConsoleContent = null;
 	[SerializeField]
-	GameObject MessagePrefab;
+	GameObject MessagePrefab = null;
     [SerializeField]
-    List<Toggle> ToggleTypeButtons;
+    List<Toggle> ToggleTypeButtons = null;
     List<int> TypesCounter = new List<int>(){0, 0, 0};
 	List<bool> ActiveLogTypes = new List<bool>(){true, true, true};
 	bool ToggleConsole = false;
 	List<Message> Messages = new List<Message>();
 	// Console design
 	[SerializeField]
-    List<Sprite> TypeIcons;
+    List<Sprite> TypeIcons = null;
 	bool ColorToggle = true;
     Color DefaultColor = new Color32(194,194,194,255);
     Color AltColor = new Color32(201,201,201,255);
