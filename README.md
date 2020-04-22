@@ -2,7 +2,7 @@
 A collection of useful tools for Unity.
 
 
-### HCM (Hierarchy Color Manager)
+## HCM (Hierarchy Color Manager)
 Assign colors to the gameobjects in your hierarchy window. This is based on tags.
 
 ![HCM in Unity](https://ferdinanddervieux.com/ImageHosting/HCM2.png)
@@ -15,7 +15,7 @@ Assign colors to the gameobjects in your hierarchy window. This is based on tags
 
 ---
 
-### BVAU (Bundle Version Auto Updater) for iOS & Android
+## BVAU (Bundle Version Auto Updater) for iOS & Android
 Auto increment the bundle version number after a build on iOS and Android. This prevent your app from being rejected by the store submission if the bundle version has not changed.
 
 **Download** :
@@ -26,7 +26,7 @@ Auto increment the bundle version number after a build on iOS and Android. This 
 
 ---
 
-### Device Console
+## Device Console
 Receive and show every Unity console message directly in your build. this is especially useful on mobile and AR projects.
 
 ![DeviceConsole in Unity](https://ferdinanddervieux.com/ImageHosting/DeviceConsole.png)*Device Console directly into the game view, ready to be exported in a build.*
@@ -42,7 +42,7 @@ Receive and show every Unity console message directly in your build. this is esp
 
 ---
 
-### Save Manager
+## Save Manager
 An easy to use encrypted game save manager. Create, load, save game data on any platform. It's using a SHA256 encryption and warns you if the game save has been modified or the SHA key is missing so you can decide what to do. You can create as many game save as you want by passing a slot int.
 
 **Download** :
