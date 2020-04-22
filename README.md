@@ -50,27 +50,35 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
 
 **How to use** :
 - Just drag and drop the SaveManager prefab in your scene. It is a DontDestroyOnLoad singleton object.
-- Create or load a game save in a specific slot. If the slot is empty, it creates a new save file.
+- Create or load an existing game save in a specific slot. If the slot is empty, it creates a new game save in this slot.
   ```csharp
-  SaveManager.LoadGameSave(int Slot);
+  SaveManager.LoadOrCreateGameSave(int Slot);
+  ```
+- Get the list of all game saves in the Application.persistentDataPath folder. It returns a list of int, each int being a slot containing a game save.
+  ```csharp
+  List<int>  GetListOfExistingGameSaves();
   ```
 - Set or update game save data. Pass a key and a value. It automatically creates new keys and update existing ones.
   ```csharp
-  SaveManager.UpdateData(string DataKey, string DataValue);
+  SaveManager.SetData(string DataKey, string DataValue);
   ```
 - Get a save data value. Return the requested value as a string. If the key doesn't exist it returns the value "No data".
   ```csharp
-  SaveManager.GetData(string DataKey);
+  string SaveManager.GetData(string DataKey);
   ```
 - Save the game. Write the game save data to the current slot.
   ```csharp
   SaveManager.SaveGame();
   ```
-- Erase current save file. Replace the data of the current slot with empty data.
+  To save the current game save in a different slot you can pass an int. This new slot will be the active one from now on.
   ```csharp
-  SaveManager.EraseSaveFile();
+  SaveManager.SaveGame(int Slot);
+  ```  
+- Erase the current game save. Replace the data of the current slot with empty data.
+  ```csharp
+  SaveManager.EraseGameSave();
   ```
-- Show the list all the data of the current game save in the console.
+- Show the list of all the data contained by the current game save in the console.
   ```csharp
   SaveManager.DebugGameSave();
   ```
