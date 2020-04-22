@@ -77,7 +77,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   ```csharp
   SaveManager.SaveGame(int Slot);
   ```  
-- Erase the current game save. Replace the data of the current slot with empty data.
+- Erase the current game save. Replace the data of the active slot with empty data.
   ```csharp
   SaveManager.EraseGameSave();
   ```
