@@ -3,7 +3,7 @@ A collection of useful tools for Unity.
 
 
 ## HCM (Hierarchy Color Manager)
-Assign colors to the gameobjects in your hierarchy window. This is based on tags.
+Assign colors to the gameobjects in your hierarchy window based on their tags.
 
 ![HCM in Unity](https://ferdinanddervieux.com/ImageHosting/HCM2.png)
 
