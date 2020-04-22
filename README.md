@@ -69,7 +69,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   ```csharp
   string SaveManager.GetData(string DataKey);
   ```
-- Save the game. Write the game save data to the current slot.
+- Save the game. Write the game save data to the active slot.
   ```csharp
   SaveManager.SaveGame();
   ```
