@@ -158,7 +158,7 @@ public class SaveManager : MonoBehaviour {
     	return GameSaves;
     }
 
-	public static void DebugGameSaves(){
+	public static void DebugGameSave(){
 		
 		if(GameSave == null) return;
 		
