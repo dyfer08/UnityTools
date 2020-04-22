@@ -38,7 +38,7 @@ Receive and show every Unity console message directly in your build. this is esp
 - Just drag and drop the DeviceConsole prefab in your scene. If you need to adjust the scale, modify the Scale Factor of the Canvas Scaler component.
 
 **Future improvements** :
-- Maybe limit the console messages to 2 lines and show the full reslut in a bottom window when selected (like Unity does in the Editor).
+- Maybe limit the console messages to 2 lines and show the full content in a bottom window when selected (like Unity does in the Editor).
 
 ---
 
