@@ -55,7 +55,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   ```csharp
   SaveManager.LoadOrCreateGameSave(int Slot);
   ```
-  When a game save is loaded, the SaveManager checks it's integrity with a SHA256 encryption key. If the game save has been modified or the SHA256 key is missing, it triggers a Debug.LogWarning and you can decide to ignore it or react as you wish.
+  When loading a game save, the SaveManager checks it's integrity with a SHA256 encryption key. If the game save has been modified or the SHA256 key is missing, it triggers a Debug.LogWarning and you can decide to ignore it or react as you wish.
 
 - Get the list of all game saves in the Application.persistentDataPath folder. It returns a list of int, each int being a slot containing a game save.
   ```csharp
