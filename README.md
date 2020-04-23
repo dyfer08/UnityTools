@@ -111,15 +111,15 @@ Screenshot is a straightforward tool to take screenshots in builds and Editor (b
   ```csharp
   Screenshother.TakeScreenshot();
   ```
-You can pass an int to set the supersize scale.
+  You can pass an int to set the supersize scale.
   ```csharp
   Screenshother.TakeScreenshot(int SuperSize);
   ```
-You can pass a Vector2 to set a specific resolution.
+  You can pass a Vector2 to set a specific resolution.
   ```csharp
   Screenshother.TakeScreenshot(Vector2 Resolution);
   ```
-And you can pass both.
+  And you can pass both.
   ```csharp
   Screenshother.TakeScreenshot(int SuperSize, Vector2 Resolution);
   ```
