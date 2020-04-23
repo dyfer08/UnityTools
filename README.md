@@ -86,3 +86,40 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
   SaveManager.DebugGameSave();
   ```
 - By default every game save created contains a "SaveTime" key. this key is updated everytime you save the game. It returns the System.DateTime.Now formated as a string : "yyMMddHHmmss".
+
+---
+
+## Screenshoter
+Screenshot is a straightforward tool to take screenshots in builds and Editor (both in playmode or not). You can specify a file format(RAW, PNG, JPG), camera, resolution and set a super size upscale for high resolution captures.
+
+![Screenshoter in Unity](https://ferdinanddervieux.com/ImageHosting/Screenshoter2.png)*Screenshoter tool ui.*
+
+**Download** :
+- [Screenshoter.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/Screenshoter.unitypackage.zip)
+
+**How to use** :
+- Just drag and drop the Screenshoter prefab in your scene. It is a DontDestroyOnLoad singleton object.
+
+  **In Editor mode**
+- You can use Screenshoter in both play and edit mode.
+- Tweak the optional settings.
+- Click on "Take Screenshot" to capture an image.
+- Click on "Show Folder" to open the folder containing your screenshots.
+
+  **In build**
+- Take a screenshot in build.
+  ```csharp
+  Screenshother.TakeScreenshot();
+  ```
+You can pass an int to set the supersize scale.
+  ```csharp
+  Screenshother.TakeScreenshot(int SuperSize);
+  ```
+You can pass a Vector2 to set a specific resolution.
+  ```csharp
+  Screenshother.TakeScreenshot(Vector2 Resolution);
+  ```
+And you can pass both.
+  ```csharp
+  Screenshother.TakeScreenshot(int SuperSize, Vector2 Resolution);
+  ```
