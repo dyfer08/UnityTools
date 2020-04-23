@@ -100,12 +100,14 @@ Screenshot is a straightforward tool to take screenshots in builds and Editor (b
 **How to use** :
 - Just drag and drop the Screenshoter prefab in your scene. It is a DontDestroyOnLoad singleton object.
 
+  
   **In Editor mode**
 - You can use Screenshoter in both play and edit mode.
 - Tweak the optional settings.
 - Click on "Take Screenshot" to capture an image.
 - Click on "Show Folder" to open the folder containing your screenshots.
 
+  
   **In build**
 - Take a screenshot in build.
   ```csharp
