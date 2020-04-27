@@ -59,7 +59,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
 
 - Get the list of all game saves in the Application.persistentDataPath folder. It returns a list of int, each int being a slot containing a game save.
   ```csharp
-  List<int>  GetListOfExistingGameSaves();
+  List<int> GetListOfExistingGameSaves();
   ```
 - Set or update game save data. Pass a key and a value. It automatically creates new keys and update existing ones.
   ```csharp
