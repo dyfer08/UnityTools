@@ -90,7 +90,7 @@ An easy to use encrypted game save manager. Create, load, save game data on any 
 ---
 
 ## Screenshoter
-Screenshot is a straightforward tool to take screenshots in builds and Editor (both in playmode or not). You can specify a file format(RAW, PNG, JPG), camera, resolution and set a super size upscale for high resolution captures. Tested in standalone and Android.
+Screenshot is a straightforward tool to take screenshots in builds and Editor (both in playmode or not). You can specify a file format(RAW, PNG, JPG), camera, resolution and set a super size upscale for high resolution captures. Tested on OSX and Android. To use in Android you need to enable access to externl files in the Unity Player settings.
 
 ![Screenshoter in Unity](https://ferdinanddervieux.com/ImageHosting/Screenshoter2.png)*Screenshoter tool ui.*
 
