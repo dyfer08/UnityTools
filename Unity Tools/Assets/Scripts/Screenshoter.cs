@@ -29,7 +29,7 @@ public class Screenshoter : MonoBehaviour{
     int ScreenshotHeight;
     bool Capture = false;
 
-    void Awake(){
+    void Start(){
     	if(Instance == null){
     		Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -40,8 +40,25 @@ public class Screenshoter : MonoBehaviour{
     }
 
 	void CreateFolder(){
-		string Folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures);
+
+		string Folder = "";
+
+		switch(Application.platform){
+			
+			case RuntimePlatform.OSXPlayer:
+			case RuntimePlatform.OSXEditor:
+			case RuntimePlatform.WindowsPlayer:
+			case RuntimePlatform.WindowsEditor:
+				Folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures);
+			break;
+
+			case RuntimePlatform.Android:
+				Folder = Application.persistentDataPath;
+				System.IO.Directory.CreateDirectory("/storage/emulated/0/Pictures/"+FolderName);
+			break;
+		}
 		Folder += "/"+FolderName;
+		
 		System.IO.Directory.CreateDirectory(Folder);
 		FilePath = Folder;
 	}
@@ -59,6 +76,10 @@ public class Screenshoter : MonoBehaviour{
             string winPath = myWinPath.Replace("/", "\\");
             System.Diagnostics.Process.Start("explorer.exe", (openInsidesOfFolder ? "/root," : "/select,") + winPath);
         }
+    }
+
+    public void TakeScreenshot(){
+    	Screenshoter.TakeScreenshot();
     }
 
 	public static void TakeScreenshot(int NewSuperSize = 0, Vector2 Resolution = default(Vector2)){
@@ -129,7 +150,8 @@ public class Screenshoter : MonoBehaviour{
 		Camera.clearFlags = ClearFlags;
 		
 		string Mask = string.Format("{0}*.{1}", FileName, FileFormat.ToString().ToLower());
-		int FileNumber = Directory.GetFiles(FilePath, Mask, SearchOption.TopDirectoryOnly).Length + 1;
+		string FileNumber = "_"+DateTime.Now.ToString("yyyyMMdd-HHmmss");
+		
 		string NewFile = FilePath+"/"+FileName+FileNumber+"."+FileFormat.ToString().ToLower();
 
 		byte[] FileData = null;
@@ -151,5 +173,27 @@ public class Screenshoter : MonoBehaviour{
 			File.Write(FileData, 0, FileData.Length);
 			File.Close();
 		}).Start();
+
+		if(Application.platform == RuntimePlatform.Android){
+			StartCoroutine(RefreshGallery("/"+FileName+FileNumber+"."+FileFormat.ToString().ToLower()));
+		}
+
+    }
+
+    IEnumerator RefreshGallery(string NewFilePath){
+    	yield return new WaitForSeconds(2);
+    	
+    	File.Move(FilePath+NewFilePath, "/storage/emulated/0/Pictures/"+FolderName+NewFilePath);
+
+    	using (AndroidJavaClass ClassPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        using (AndroidJavaObject ClassActivity = ClassPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+        using (AndroidJavaObject ObjectContext = ClassActivity.Call<AndroidJavaObject>("getApplicationContext"))
+        using (AndroidJavaClass ClassMediaScannerConnection = new AndroidJavaClass("android.media.MediaScannerConnection"))
+        using (AndroidJavaClass ClassEnvironment = new AndroidJavaClass("android.os.Environment"))
+        using (AndroidJavaObject ObjectExDir = ClassEnvironment.CallStatic<AndroidJavaObject>("getExternalStorageDirectory")){
+            ClassMediaScannerConnection.CallStatic("scanFile", ObjectContext, new string[] { "/storage/emulated/0/Pictures/"+FolderName+NewFilePath }, null, null);
+        }
     }
 }
+
+

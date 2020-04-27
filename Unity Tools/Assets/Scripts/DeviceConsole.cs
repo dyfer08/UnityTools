@@ -29,7 +29,7 @@ public class DeviceConsole : MonoBehaviour{
     Color DefaultColor = new Color32(194,194,194,255);
     Color AltColor = new Color32(201,201,201,255);
 
-	void Start (){
+	void Awake (){
 		for(int i=0; i<ActiveLogTypes.Count; i++){
 			if(PlayerPrefs.HasKey("DC_ShowType"+i)){
 				ToggleTypeButtons[i].isOn = PlayerPrefs.GetString("DC_ShowType"+i) == "True";
