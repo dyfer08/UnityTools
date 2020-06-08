@@ -134,6 +134,8 @@ public class Screenshoter : MonoBehaviour{
 		Camera.targetTexture = RenderTexture;
 
 		var ClearFlags = Camera.clearFlags;
+		var CameraColor = Camera.backgroundColor;
+		
 		if (AlphaBackground) {
 		    Camera.clearFlags = CameraClearFlags.SolidColor;
 		    Camera.backgroundColor = new Color (0, 0, 0, 0);
@@ -148,6 +150,7 @@ public class Screenshoter : MonoBehaviour{
 		RenderTexture.active = null;
 
 		Camera.clearFlags = ClearFlags;
+		Camera.backgroundColor = CameraColor;
 		
 		string Mask = string.Format("{0}*.{1}", FileName, FileFormat.ToString().ToLower());
 		string FileNumber = "_"+DateTime.Now.ToString("yyyyMMdd-HHmmss");
