@@ -22,6 +22,10 @@ public class CustomShaderGUI : ShaderGUI {
 
                 GUILayout.Space(int.Parse(PropertyTag));
                 PropertyName = PropertyName.Replace(PropertyName.Substring(0, EndTagPos), "");
+
+                if(PropertyName == ""){
+                    continue;
+                }
             }
 
             if(PropertyName.Contains("[Header(")){
@@ -36,6 +40,10 @@ public class CustomShaderGUI : ShaderGUI {
                 EditorStyles.boldLabel.fontSize = default;
                 GUILayout.Space(10);
                 PropertyName = PropertyName.Replace(PropertyName.Substring(0, EndTagPos), "");
+
+                if(PropertyName == ""){
+                    continue;
+                }
             }
 
             if(PropertyName.Contains("[Line]")){
