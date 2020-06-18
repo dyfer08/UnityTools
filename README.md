@@ -147,3 +147,6 @@ I have been using shader graph a lot these days and my materials in inspector ge
 - To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a line will appear in inspector.
 - To add a header, create a Vector1 property and call it "[Header(Any title you want)]" where "Any title you want" is your text. The property will be ignored and a header will appear in inspector.
 - To add a space, create a Vector1 property and call it "[Space(999)]" where "999" is your space in pixels. The property will be ignored and a space will appear in inspector.
+
+**No more properties**
+- Alternatively for Header and Space tags you can avoid to create a Vector1 property and add them directly in an existing property name. So for example if you have a Texture property called "Main texture" and you want to insert a header above, you can rename it "[Header(Any title you want)]Main texture".
