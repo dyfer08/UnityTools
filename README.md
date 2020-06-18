@@ -131,7 +131,7 @@ Screenshot is a straightforward tool to take screenshots in builds and Editor (b
 ## CustomShaderUGUI
 I have been using shader graph a lot these days and my materials in inspector get quite complex sometimes with a ton of otions stacking there. So I created a simple script to hel design and organise shader settings. You can add headers, lines and spaces to improve readability. I also changed the default texture layout to the Unity small one.
 
-![CustomShaderUGUI in Unity](https://ferdinanddervieux.com/ImageHosting/CustomShaderUGUI.png)
+![CustomShaderUGUI in Unity](https://ferdinanddervieux.com/ImageHosting/CustomShaderUGUI2.png)
 
 **Download** :
 - [CustomShaderUGUI.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/CustomShaderUGUI.unitypackage.zip)
