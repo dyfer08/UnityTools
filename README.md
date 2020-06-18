@@ -144,7 +144,7 @@ I have been using shader graph a lot these days and my materials in inspector ge
 - Check Override ShaderGUI and in the ShaderGUI field write "CustomShaderGUI"
 
 **Use**
-- To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a line will appear in inspector.
+- To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a white line separator will appear in inspector.
 - To add a header, create a Vector1 property and call it "[Header(Any title you want)]" where "Any title you want" is your text. The property will be ignored and a header will appear in inspector.
 - To add a space, create a Vector1 property and call it "[Space(999)]" where "999" is your space in pixels. The property will be ignored and a space will appear in inspector.
 
