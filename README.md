@@ -134,15 +134,17 @@ I have been using shader graph a lot these days and my materials in inspector ge
 ![Screenshoter in Unity](https://ferdinanddervieux.com/ImageHosting/Screenshoter2.png)*Screenshoter tool ui.*
 
 **Download** :
-- [CustomShaderUGUI.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/Screenshoter.unitypackage.zip)
+- [CustomShaderUGUI.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/CustomShaderUGUI.unitypackage.zip)
 
-**How to use** :
-  **Setup**
+**How to use** :<br>
+<br>
+**Setup**
 - This script requires shader graph 7.4+
 - In your shader graph, click on the little cog in the top right corner of your Master Node
 - Check Override ShaderGUI and in the ShaderGUI field write "CustomShaderGUI"
 
-  **Use**
+<br>
+**Use**
 - To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a line will appear in inspector.
 - To add a header, create a Vector1 property and call it "[Header(Any title you want)]" where "Any title you want" is your text. The property will be ignored and a header will appear in inspector.
 - To add a space, create a Vector1 property and call it "[Space(999)]" where "999" is your space in pixels. The property will be ignored and a space will appear in inspector.
