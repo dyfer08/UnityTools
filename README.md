@@ -131,7 +131,7 @@ Screenshot is a straightforward tool to take screenshots in builds and Editor (b
 ## CustomShaderUGUI
 I have been using shader graph a lot these days and my materials in inspector get quite complex sometimes with a ton of otions stacking there. So I created a simple script to hel design and organise shader settings. You can add headers, lines and spaces to improve readability. I also changed the default texture layout to the Unity small one.
 
-![Screenshoter in Unity](https://ferdinanddervieux.com/ImageHosting/Screenshoter2.png)*Screenshoter tool ui.*
+![CustomShaderUGUI in Unity](https://ferdinanddervieux.com/ImageHosting/CustomShaderUGUI.png)
 
 **Download** :
 - [CustomShaderUGUI.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/CustomShaderUGUI.unitypackage.zip)
@@ -142,6 +142,8 @@ I have been using shader graph a lot these days and my materials in inspector ge
 - This script requires shader graph 7.4+
 - In your shader graph, click on the little cog in the top right corner of your Master Node
 - Check Override ShaderGUI and in the ShaderGUI field write "CustomShaderGUI"
+
+![CustomShaderUGUI setup](https://ferdinanddervieux.com/ImageHosting/CustomShaderUGUISetup.png)
 
 **Use**
 - To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a white line separator will appear in inspector.
