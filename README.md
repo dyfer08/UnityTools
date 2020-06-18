@@ -143,7 +143,6 @@ I have been using shader graph a lot these days and my materials in inspector ge
 - In your shader graph, click on the little cog in the top right corner of your Master Node
 - Check Override ShaderGUI and in the ShaderGUI field write "CustomShaderGUI"
 
-<br>
 **Use**
 - To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a line will appear in inspector.
 - To add a header, create a Vector1 property and call it "[Header(Any title you want)]" where "Any title you want" is your text. The property will be ignored and a header will appear in inspector.
