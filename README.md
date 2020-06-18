@@ -125,3 +125,24 @@ Screenshot is a straightforward tool to take screenshots in builds and Editor (b
   ```csharp
   Screenshother.TakeScreenshot(int SuperSize, Vector2 Resolution);
   ```
+
+---
+
+## CustomShaderUGUI
+I have been using shader graph a lot these days and my materials in inspector get quite complex sometimes with a ton of otions stacking there. So I created a simple script to hel design and organise shader settings. You can add headers, lines and spaces to improve readability. I also changed the default texture layout to the Unity small one.
+
+![Screenshoter in Unity](https://ferdinanddervieux.com/ImageHosting/Screenshoter2.png)*Screenshoter tool ui.*
+
+**Download** :
+- [CustomShaderUGUI.unitypackage.zip](https://github.com/dyfer08/UnityTools/raw/master/Unity%20Tools/Assets/Unity%20Packages/Screenshoter.unitypackage.zip)
+
+**How to use** :
+  **Setup**
+- This script requires shader graph 7.4+
+- In your shader graph, click on the little cog in the top right corner of your Master Node
+- Check Override ShaderGUI and in the ShaderGUI field write "CustomShaderGUI"
+
+  **Use**
+- To add a line, create a Vector1 property and call it "[Line]". The property will be ignored and a line will appear in inspector.
+- To add a header, create a Vector1 property and call it "[Header(Any title you want)]" where "Any title you want" is your text. The property will be ignored and a header will appear in inspector.
+- To add a space, create a Vector1 property and call it "[Space(999)]" where "999" is your space in pixels. The property will be ignored and a space will appear in inspector.
