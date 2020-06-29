@@ -4,7 +4,7 @@ using System.Collections;
 using System.IO;
 using System;
 
-public enum Format { PNG, JPG, RAW };
+public enum ImageFormat { PNG, JPG, RAW };
 
 public class Screenshoter : MonoBehaviour{
 
@@ -14,7 +14,7 @@ public class Screenshoter : MonoBehaviour{
 	[SerializeField]
 	string FileName = "Screenshot";
 	[SerializeField]
-	Format FileFormat = Format.PNG;
+	ImageFormat FileFormat = ImageFormat.PNG;
 	[SerializeField]
 	bool AlphaBackground = false;
 	[SerializeField]
@@ -160,13 +160,13 @@ public class Screenshoter : MonoBehaviour{
 		byte[] FileData = null;
 	
 		switch(FileFormat){
-			case Format.RAW:
+			case ImageFormat.RAW:
 				FileData = Screenshot.GetRawTextureData();
 			break;
-			case Format.PNG:
+			case ImageFormat.PNG:
 				FileData = Screenshot.EncodeToPNG();
 			break;
-			case Format.JPG:
+			case ImageFormat.JPG:
 				FileData = Screenshot.EncodeToJPG();
 			break;
 		}
