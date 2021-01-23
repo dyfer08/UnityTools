@@ -34,9 +34,9 @@ public class HCM_Window : EditorWindow{
 
         GUILayout.Space(10); 
 
-        EditorGUI.DrawRect(new Rect(0, 0, Screen.width, 1), new Color32(125,125,125,255));
-        EditorGUI.DrawRect(new Rect(0, 1, Screen.width, 32), new Color32(225,225,225,255));
-        EditorGUI.DrawRect(new Rect(0, 32, Screen.width, 1), new Color32(125,125,125,255));
+        EditorGUI.DrawRect(new Rect(0, 0, Screen.width, 1), new Color32(0,0,0,100));
+        EditorGUI.DrawRect(new Rect(0, 1, Screen.width, 32), new Color32(0,0,0,25));
+        EditorGUI.DrawRect(new Rect(0, 32, Screen.width, 1), new Color32(0,0,0,100));
 
         EditorGUILayout.BeginHorizontal ();
             GUILayout.FlexibleSpace();
@@ -67,11 +67,11 @@ public class HCM_Window : EditorWindow{
 
         GUILayout.Space(10);
 
-        DrawUILine(new Color32(125,125,125,255), 1, -3);
+        DrawUILine(new Color32(0,0,0,100), 1, -3);
 
         GUIStyle NewStyle = new GUIStyle();
         NewStyle.normal.background = Texture2D.whiteTexture;
-        GUI.backgroundColor =  new Color32(225,225,225,255);
+        GUI.backgroundColor =  new Color32(0,0,0,25);
 
         EditorGUILayout.BeginHorizontal (NewStyle);
             GUILayout.FlexibleSpace();
@@ -81,7 +81,7 @@ public class HCM_Window : EditorWindow{
 
         GUI.backgroundColor = Color.white;
 
-        DrawUILine(new Color32(125,125,125,255), 1, -4);
+        DrawUILine(new Color32(0,0,0,100), 1, -4);
 
         GUILayout.Space(10);
 
